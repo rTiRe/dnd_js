@@ -48,8 +48,8 @@ function handleChoice(locationKey, choiceIndex) {
         console.log(`Вы исследовали локацию! Исследования: ${location.explores.number}`);
         displayLocation(locationKey)
     }
-    if (choice.event) {
-        choice.event();
+    else if (choice.event) {
+        choice.event(player);
     }
     else {
         player.location = choice.next || player.location;
