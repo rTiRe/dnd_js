@@ -4,7 +4,7 @@ let locations = {
         description: `Луч света пробивается сквозь слой камня... Подземный тунель уходит вглубь...`,
         choices: [
             {text: `Исследовать`, next: `explore`, max_usages: 24, usages: 0},
-            {text: `Карабкаться по стенам`, next: `climb`, max_usages: 9, usages: 0},
+            {text: `Карабкаться по стенам`, next: `light_forest`, max_usages: 9, usages: 0},
             {text: `Остаться на месте`, next: `stay`, max_usages: 12, usages: 0},
             {text: `Идти вглубь`, next: `tunnel`},
         ],
