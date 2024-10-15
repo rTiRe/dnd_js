@@ -55,7 +55,7 @@ let locations = {
             {text: `Исследовать`, next: `explore`, max_usages: 1, usages: 0},
             {text: `Вернуться обратно`, next: `start`},
             {text: `Идти вглубь`, next: `old_mineshaft`},
-            {text: `Отдохнуть`, max_usages: 3, usages: 0, event: () => {player.health += 10}}
+            {text: `Отдохнуть`, max_usages: 3, usages: 0, event: () => {player.health += 10; console.log(`Вы отдохнули и получили +10hp`)}, next: `light_forest`}
         ],
         explores: {number: 0},
     },
