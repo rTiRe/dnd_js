@@ -4,7 +4,7 @@ function random_list(list){
 }
 
 
-export function handleFight(player, monster){
+function handleFight(player, monster){
     aborter.abort();
     if (Math.random(0, 1) <= player.weapon.attack_chance){
         console.log(`Вы попали!`)
@@ -28,3 +28,5 @@ export function handleFight(player, monster){
         }
     }
 }
+
+module.exports = handleFight
