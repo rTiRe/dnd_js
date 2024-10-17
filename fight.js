@@ -1,5 +1,5 @@
 let inventory = require(`./inventory.js`)
-const readline = require(`readline`)
+var rl = require(`./reader.js`)
 const aborter = new AbortController();
 
 
@@ -18,11 +18,6 @@ function getRandomDrop(dropList) {
     return false
 }
 
-
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-})
 
 function handleFight(player, monster){
     aborter.abort();

@@ -1,12 +1,7 @@
 var player = require(`./player.js`)
 var locations = require(`./locations.js`)
 var spawner = require(`./spawner.js`)
-const readline = require(`readline`)
-
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-})
+var rl = require(`./reader.js`)
 
 function displayLocation(locationKey) {
     const location = locations[locationKey];

@@ -1,10 +1,5 @@
 var player = require(`./player.js`)
-const readline = require(`readline`)
-
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-})
+var rl = require(`./reader.js`)
 
 
 function add_item(item) {
