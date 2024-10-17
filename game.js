@@ -21,8 +21,8 @@ function displayLocation(locationKey) {
             console.log(`${index + 1}. ${choice.text}`);
         }
     });
-
-    rl.question(`\n>>> Ваш выбор: `, (answer) => {
+    const aborter = new AbortController();
+    rl.question(`\n>>> Ваш выбор: `, { signal: aborter.signal }, (answer) => {
         handleChoice(locationKey, parseInt(answer) - 1);
     });
 }
@@ -54,6 +54,22 @@ function handleChoice(locationKey, choiceIndex) {
     else {
         player.location = choice.next || player.location;
         displayLocation(player.location);
+    }
+}
+
+function handleFight(player, monster){
+    if (Math.random(0, 1) === 1){
+        console.log(`Вам повезло! Вы атакуете первым!`)
+        if (Math.random(0, 100) >= monster.agility){
+            console.log(`Вы попали!`)
+            monster.health -= player.damage
+        }
+        else if (monster.health <= 0){
+            console.log(`Вы одолели монстра!`)
+        }
+        else {
+            console.log(`Мимо!`)
+        }
     }
 }
 

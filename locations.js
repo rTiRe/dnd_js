@@ -38,6 +38,12 @@ let locations = {
         choices: [],
         explores: {},
     },
+    old_mineshaft_3: {
+        name: `Старая шахта`,
+        description: `Вы слышите, что привели в движение какой-то механизм...`,
+        choices: [],
+        explores: {},
+    },
     minecart: {
         name: `Американские горки!?`,
         description: `Несясь на старой вагонетке по не менее старым путям в шахте, вы осознаете, что прочность этих конструкций уже не та...`,
@@ -87,7 +93,7 @@ let locations = {
         choices: [
             {text: `Исследовать`, next: `explore`, max_usages: 1, usages: 0},
             {text: `Вернуться обратно`, next: `dark_forest`},
-            {text: `Идти вглубь`, next: `weird_portal`},
+            {text: `Идти вглубь`, next: `weird_portal`, min_explores: 10},
         ],
         explores: {number: 0},
     },
