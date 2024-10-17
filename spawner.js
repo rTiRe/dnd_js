@@ -1,4 +1,5 @@
 let monsters = require(`./monsters.js`)
+let fight = require(`./fight.js`)
 
 
 function checkFight(player) {
@@ -21,7 +22,7 @@ function spawnMonster(player) {
             }
             let monster = getRandomMonster()
             player.fight = monster
-            console.log(`\n=== Монстр ${monster.name} ===`)
+            fight(player, monster)
         },
         1000
     )
