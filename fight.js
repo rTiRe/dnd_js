@@ -3,6 +3,20 @@ function random_list(list){
     return list[random];
 }
 
+function getRandomDrop(dropList) {
+    let rand = Math.random(); 
+    let cumulativeChance = 0;
+
+    for (let drop of dropList) {
+        cumulativeChance += drop.chance; 
+        if (rand < cumulativeChance) {
+            return drop.item; 
+        }
+    }
+    return null; 
+}
+
+
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
@@ -33,6 +47,15 @@ function handleFight(player, monster){
             }
             else if (monster.health <= 0){
                 console.log(`Вы одолели монстра!`)
+                if (Math.random(0, 1) > monster.drop_chance){
+                    dropped = getRandomDrop(monster.drop)
+                    console.log(`Вам выпало - `, dropped.item)
+                    player.addItem(dropped)
+                }
+                else {
+                    console.log(`Ничего не выпало, печалька(`)
+                }
+                player.addItem()
                 break
             }
             else if (player.health <= 0){
