@@ -58,18 +58,16 @@ function handleChoice(locationKey, choiceIndex) {
 }
 
 function handleFight(player, monster){
-    if (Math.random(0, 1) === 1){
-        console.log(`Вам повезло! Вы атакуете первым!`)
-        if (Math.random(0, 100) >= monster.agility){
-            console.log(`Вы попали!`)
-            monster.health -= player.damage
-        }
-        else if (monster.health <= 0){
-            console.log(`Вы одолели монстра!`)
-        }
-        else {
-            console.log(`Мимо!`)
-        }
+    console.log(`Вам повезло! Вы атакуете первым!`)
+    if (Math.random(0, 100) <= player.weapon.attack_chance){
+        console.log(`Вы попали!`)
+        monster.health -= player.weapon.damage
+    }
+    else if (monster.health <= 0){
+        console.log(`Вы одолели монстра!`)
+    }
+    else {
+        console.log(`Мимо!`)
     }
 }
 
