@@ -58,18 +58,7 @@ function handleChoice(locationKey, choiceIndex) {
     }
 }
 
-function handleFight(player, monster){
-    if (Math.random(0, 1) <= player.weapon.attack_chance){
-        console.log(`Вы попали!`)
-        monster.health -= player.weapon.damage
-    }
-    else if (monster.health <= 0){
-        console.log(`Вы одолели монстра!`)
-    }
-    else {
-        console.log(`Мимо!`)
-    }
-}
+
 
 function startGame() {
     console.log(`Добро пожаловать в игру!`);
