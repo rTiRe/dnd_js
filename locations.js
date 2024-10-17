@@ -1,3 +1,5 @@
+let monsters = require(`./monsters.js`)
+
 let locations = {
     start: {
         name: `Подземное плато`,
@@ -19,6 +21,10 @@ let locations = {
             {text: `Идти вглубь`, next: `old_mineshaft`},
         ],
         explores: {number: 0},
+        monsters: [
+            {monster: monsters.szlachta, chance: 1},
+        ],
+        monster_spawn_chance: 0.3,
     },
     old_mineshaft: {
         name: `Старая шахта`,

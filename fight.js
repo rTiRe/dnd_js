@@ -1,4 +1,5 @@
 let inventory = require(`./inventory.js`)
+const readline = require(`readline`)
 
 function random_list(list){
     var random = Math.floor(Math.random() * list.length);

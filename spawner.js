@@ -1,4 +1,5 @@
-let monsters = require(`./monsters.js`)
+let player = require(`./player.js`)
+let locations = require(`./locations.js`)
 let fight = require(`./fight.js`)
 
 
@@ -8,9 +9,28 @@ function checkFight(player) {
 }
 
 
+function getRandomMonster(monsterList) {
+    
+}
+
+
 function getRandomMonster() {
-    let keys = Object.keys(monsters)
-    return Object.assign({}, monsters[keys[ keys.length * Math.random() << 0 ]])
+    let location = locations[player.location]
+    if (location.monster_spawn_chance <= Math.random()) {
+        let monsters = location.monsters
+        let rnd = Math.random()
+        let monster = null
+        let cumulativeChance = 0
+        for (var i = 0; i < monsters.length; i++) {
+            cumulativeChance += monsters[i].chance
+            if (rnd < cumulativeChance) {
+                monster = monsters[i].monster
+            }
+        }
+        if (monster) {
+            return Object.assign({}, monster)
+        }
+    }
 }
 
 

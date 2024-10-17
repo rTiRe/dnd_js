@@ -1,4 +1,5 @@
 var player = require(`./player.js`)
+const readline = require(`readline`)
 
 const rl = readline.createInterface({
     input: process.stdin,
