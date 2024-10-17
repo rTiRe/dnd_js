@@ -9,14 +9,9 @@ function checkFight(player) {
 }
 
 
-function getRandomMonster(monsterList) {
-    
-}
-
-
 function getRandomMonster() {
     let location = locations[player.location]
-    if (location.monster_spawn_chance <= Math.random()) {
+    if (location.monster_spawn_chance && location.monster_spawn_chance <= Math.random()) {
         let monsters = location.monsters
         let rnd = Math.random()
         let monster = null
@@ -41,8 +36,10 @@ function spawnMonster(player) {
                 return
             }
             let monster = getRandomMonster()
-            player.fight = monster
-            fight(player, Object.assign({}, monster))
+            if (monster) {
+                player.fight = monster
+                fight(player, Object.assign({}, monster))
+            }
         },
         1000
         )
