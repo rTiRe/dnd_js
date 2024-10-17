@@ -22,10 +22,10 @@ function spawnMonster(player) {
             }
             let monster = getRandomMonster()
             player.fight = monster
-            fight(player, monster)
+            fight(player, Object.assign({}, monster))
         },
         1000
-    )
+        )
         resolve()
     })
 }
