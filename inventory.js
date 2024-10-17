@@ -67,3 +67,9 @@ function show_inventory() {
         }
     })
 }
+
+module.exports = {
+    add_item: add_item,
+    show_inventory: show_inventory,
+    show_item: show_item,
+}
