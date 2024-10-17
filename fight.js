@@ -1,5 +1,7 @@
 let inventory = require(`./inventory.js`)
 const readline = require(`readline`)
+const aborter = new AbortController();
+
 
 function random_list(list){
     var random = Math.floor(Math.random() * list.length);
