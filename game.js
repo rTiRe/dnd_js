@@ -1,5 +1,6 @@
 var player = require(`./player.js`)
 var locations = require(`./locations.js`)
+var spawner = require(`./spawner.js`)
 const readline = require(`readline`)
 
 const rl = readline.createInterface({
@@ -62,4 +63,5 @@ function startGame() {
     displayLocation(player.location);
 }
 
-startGame();
+startGame()
+spawner(player)
