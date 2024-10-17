@@ -15,7 +15,8 @@ function handleFight(player, monster){
     }
     else {
         console.log(`Мимо!`)
-        console.log(`МОНСТР АТАКУЕТ!`)
+        console.log(`==== ${monster.name} =====`)
+        console.log(random_list(monster.appearance_messages))
         if (Math.random(0, 1) >= monster.attack_chance) {
             player.health -= monster.damage
             msg = random_list(monster.success_attack_messages)
