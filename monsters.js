@@ -1,3 +1,5 @@
+let items = require('./items.js');
+
 let monsters = {
     szlachta: {
         name: 'Шляхта',
@@ -8,7 +10,12 @@ let monsters = {
             'Вы слышите жуткое мычание сзади...',
         ],
         drop: [
-            'old_sword',
-        ]
+            {item: items.old_sword, chance: 0.05},
+            {item: items.stick, chance: 0.93},
+            {item: items.health_potion, chance: 0.02},
+        ],
+        drop_chance: 1,
     }
 }
+
+module.exports = monsters

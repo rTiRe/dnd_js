@@ -69,6 +69,8 @@ let items = {
             setTimeout(() => {
                 player.weapon.damage = damage
             }, 60000)
-        },
-    }
+        }
+    },
 }
+
+module.exports = items
