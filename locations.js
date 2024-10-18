@@ -39,16 +39,21 @@ let locations = {
         explores: {number: 0},
     },
     old_mineshaft_2: {
-        name: `Старая шахта`,
-        description: `Вы слышите, что привели в движение какой-то механизм...`,
-        choices: [],
+        name: `Старая шахта (но глубже)`,
+        description: `Вы слышите, что привели в движение какой-то механизм... Открылся какой-то тунель`,
+        choices: [
+            {text: `Исследовать`, next: `explore`, max_usages: 3, usages: 0},
+            {text: `Вернуться обратно`, next: `old_mineshaft`},
+            {text: `Идти вглубь`, next: `old_mineshaft_3`, min_explores: 3},
+        ],
         explores: {},
     },
     old_mineshaft_3: {
         name: `Старая шахта`,
-        description: `Вы слышите, что привели в движение какой-то механизм...`,
+        description: `На вас свалился скелет с потолка, вы испугались и умерли`,
         choices: [],
         explores: {},
+        end: true,
     },
     minecart: {
         name: `Американские горки!?`,
@@ -77,7 +82,7 @@ let locations = {
         choices: [
             {text: `Исследовать`, next: `explore`, max_usages: 1, usages: 0},
             {text: `Вернуться обратно`, next: `light_forest`},
-            {text: `Идти вглубь`, next: `old_mineshaft`},
+            {text: `Идти вглубь`, next: `dark_forest`},
             {text: `Подобрать подозрительный гриб`, max_usages: 1, usages: 0, event: (player) => {player.health += Math.random(-5, 5); console.log(`Вы скушали гриб, но у него был странный вкус... На вашем месте я бы проверил запас HP`)}, next: `forest`}
         ],
         explores: {number: 0},
@@ -97,7 +102,7 @@ let locations = {
         name: `Оооочень темный и дремучий лес`,
         description: `Кажется пора возвращаться обратно...`,
         choices: [
-            {text: `Исследовать`, next: `explore`, max_usages: 1, usages: 0},
+            {text: `Исследовать`, next: `explore`, max_usages: 15, usages: 0},
             {text: `Вернуться обратно`, next: `dark_forest`},
             {text: `Идти вглубь`, next: `weird_portal`, min_explores: 10},
         ],
@@ -107,7 +112,7 @@ let locations = {
         name: `Обветший обсидиановый портал`,
         description: `Старый обсидиановый портал... Интересно куда же он ведет?`,
         choices: [
-            {text: `Прикоснуться`, event: () => {console.log(`Ооойой куда же меня несеееет`)}, next: `minecraft`},
+            {text: `Прикоснуться`, next: `minecraft`},
             {text: `Вернуться обратно`, next: `deep_dark_forest`},
         ]
     }
